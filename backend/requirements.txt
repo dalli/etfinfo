@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlalchemy
+apscheduler
+beautifulsoup4
+requests
+python-dateutil
+pandas
+psycopg2-binary
+setuptools
+pytz

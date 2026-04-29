@@ -1,0 +1,478 @@
+/* ===========================
+   헤더 영역
+=========================== */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 1.25rem;
+}
+.backBtn:hover {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.35);
+  color: var(--text-primary);
+  transform: translateX(-2px);
+}
+
+.heroSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.heroLeft h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+}
+
+.heroTicker {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.heroRight {
+  text-align: right;
+}
+
+.currentPrice {
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.priceChange {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.priceDate {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+.badgeAsset  { background: rgba(99, 102, 241, 0.18); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.3); }
+.badgeRegion { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); }
+.badgeSector { background: rgba(245, 158, 11, 0.15); color: #fcd34d; border: 1px solid rgba(245,158,11,0.3); }
+.badgeManager{ background: rgba(59, 130, 246, 0.12); color: #93c5fd; border: 1px solid rgba(59,130,246,0.25); }
+
+/* ===========================
+   시세 정보 그리드
+=========================== */
+.quoteGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1100px) {
+  .quoteGrid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .quoteGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.quoteCard {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: background 0.15s;
+}
+.quoteCard:hover {
+  background: rgba(59, 130, 246, 0.06);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.quoteLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.quoteValue {
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+/* ===========================
+   중간 레이아웃 (차트 + 투자정보)
+=========================== */
+.midRow {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .midRow { grid-template-columns: 1fr; }
+}
+
+/* ===========================
+   차트 섹션
+=========================== */
+.chartPanel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--glass-shadow);
+}
+
+.chartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.chartControls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.chartTabs {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.chartTab {
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.chartTab:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--text-primary);
+}
+.chartTabActive {
+  background: rgba(59, 130, 246, 0.18) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #93c5fd !important;
+  font-weight: 700;
+}
+
+.chartWrap {
+  width: 100%;
+  height: 340px;
+}
+
+.noChartData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 340px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+
+/* ===========================
+   투자 정보 패널
+=========================== */
+.infoPanel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  gap: 0.5rem;
+}
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoLabel {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.infoValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.infoSectionTitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.85rem 0 0.4rem;
+  opacity: 0.7;
+}
+
+/* 수익률 색상 */
+.positiveText { color: var(--accent-red); }
+.negativeText { color: var(--accent-blue); }
+.neutralText  { color: var(--text-primary); }
+
+/* ===========================
+   포트폴리오 섹션
+=========================== */
+.portfolioPanel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--glass-shadow);
+}
+
+.portfolioTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.portfolioTable th {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0 0.75rem 0.75rem;
+  border-bottom: 1px solid var(--panel-border);
+  text-align: left;
+  white-space: nowrap;
+}
+.portfolioTable th:last-child { text-align: right; }
+
+.portfolioTable td {
+  padding: 0.65rem 0.75rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.025);
+  white-space: nowrap;
+}
+.portfolioTable td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.portfolioTable tr:last-child td { border-bottom: none; }
+
+.rankNum {
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+}
+
+.weightBar {
+  display: inline-block;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  transition: width 0.3s ease;
+}
+
+.weightText {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.emptyPortfolio {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ===========================
+   Loading / Error
+=========================== */
+.loadingWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(59, 130, 246, 0.15);
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.panelTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ===========================
+   테이블 행 hover
+=========================== */
+.tableRowHover:hover {
+  background: rgba(59, 130, 246, 0.07);
+  transition: background 0.12s;
+}
+
+/* ===========================
+   모달
+=========================== */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modalBox {
+  background: #0f1623;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 760px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  animation: slideUp 0.18s ease;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+}
+
+.modalTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.modalClose {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  transition: all 0.15s;
+  line-height: 1;
+  margin-top: -2px;
+}
+.modalClose:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.modalList {
+  overflow-y: auto;
+  padding: 0.5rem 1.5rem 1.5rem;
+  flex: 1;
+}
+
+/* ===========================
+   반응형
+=========================== */
+@media (max-width: 768px) {
+  .heroSection { flex-direction: column; }
+  .heroRight { text-align: left; }
+  .priceChange { justify-content: flex-start; }
+  .currentPrice { font-size: 1.7rem; }
+}

@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: etf_backend
+    env_file:
+      - .env                  # KRX_ID, KRX_PW 등 민감 정보
+    environment:
+      - DATABASE_URL=postgresql://etfuser:etfpassword@host.docker.internal:5432/etfinfo
+    extra_hosts:
+      - "host.docker.internal:host-gateway"   # Linux 호환성 (Mac Docker Desktop은 자동)
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app   # 소스 코드 마운트 (핫리로드 지원)
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: etf_frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/package.json:/app/package.json
+      - ./frontend/next.config.ts:/app/next.config.ts
+      - ./frontend/tsconfig.json:/app/tsconfig.json

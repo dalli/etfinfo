@@ -1,0 +1,45 @@
+# ── Local env & tools ──
+.env
+.omc/
+.venv/
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+
+# ── IDE ──
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Python (Backend) ──
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+backend/.venv/
+backend/venv/
+backend/env/
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+backend/.mypy_cache/
+
+# ── Node.js / Next.js (Frontend) ──
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.vercel
+frontend/*.tsbuildinfo
+frontend/.npm
+frontend/.env.local
+frontend/.env.*.local
+
+# ── Docker ──
+.docker/
+**/db_data/
+
+# ── K8s ──
+# Secret 값이나 로컬 테스트용 kubeconfig 등 (필요시 추가)
+*.log

@@ -1,0 +1,96 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: etfinfo-prod
+
+resources:
+  - ../../base
+
+# ── 이미지 태그 (배포 시 make release TAG=xxx 후 여기 수동 또는 CI가 교체)
+images:
+  - name: skcha/etfinfo-backend
+    newTag: latest
+  - name: skcha/etfinfo-frontend
+    newTag: latest
+
+# ── ConfigMap
+configMapGenerator:
+  - name: etfinfo-config
+    literals:
+      - api-url=
+
+# ── Secret: 호스트 PostgreSQL 접속 정보
+secretGenerator:
+  - name: etfinfo-secret
+    literals:
+      - database-url=postgresql://etfuser:CHANGE_ME@postgres-host:5432/etfinfo
+
+# ── prod 패치
+patches:
+  # replicas 2
+  - patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 1
+    target:
+      kind: Deployment
+      name: backend
+  - patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 1
+    target:
+      kind: Deployment
+      name: frontend
+
+  # 리소스 상향 (backend)
+  - patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/requests/cpu
+        value: "500m"
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/requests/memory
+        value: "512Mi"
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/limits/cpu
+        value: "2000m"
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/limits/memory
+        value: "1Gi"
+    target:
+      kind: Deployment
+      name: backend
+
+  # prod 도메인 + cert-manager
+  - patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: etfinfo.localhost
+      - op: add
+        path: /metadata/annotations/cert-manager.io~1cluster-issuer
+        value: letsencrypt-prod
+    target:
+      kind: Ingress
+      name: etfinfo-ingress
+
+  # TLS
+  - patch: |-
+      - op: add
+        path: /spec/tls
+        value:
+          - hosts:
+              - etfinfo.localhost
+            secretName: etfinfo-tls
+    target:
+      kind: Ingress
+      name: etfinfo-ingress
+
+  # Endpoints → 실제 호스트 IP
+  # Makefile의 sed가 192.168.65.2를 찾아 현재 호스트 IP로 교체함
+  - patch: |-
+      - op: replace
+        path: /subsets/0/addresses/0/ip
+        value: "192.168.65.2"
+    target:
+      kind: Endpoints
+      name: postgres-host

@@ -1,0 +1,26 @@
+# ── 호스트 PostgreSQL을 가리키는 headless Service + Endpoints
+# Pod 내에서 "postgres-host:5432" 로 접근 가능
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-host
+spec:
+  clusterIP: None          # headless: DNS만 등록, 로드밸런서 없음
+  ports:
+    - name: postgres
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP
+---
+# Endpoints는 overlay에서 실제 호스트 IP로 패치
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: postgres-host
+subsets:
+  - addresses:
+      - ip: 127.0.0.1      # placeholder — overlay에서 실제 IP로 교체
+    ports:
+      - name: postgres
+        port: 5432

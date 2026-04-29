@@ -1,0 +1,65 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: etfinfo-dev
+
+resources:
+  - ../../base
+
+# ── 이미지 태그 (Makefile의 TAG 값으로 교체)
+images:
+  - name: skcha/etfinfo-backend
+    newTag: latest
+  - name: skcha/etfinfo-frontend
+    newTag: latest
+
+# ── ConfigMap: 환경별 설정
+configMapGenerator:
+  - name: etfinfo-config
+    literals:
+      - api-url=
+
+# ── Secret: 호스트 PostgreSQL 접속 정보
+#    DATABASE_URL은 postgres-host Service (→ 호스트 IP) 를 가리킴
+secretGenerator:
+  - name: etfinfo-secret
+    literals:
+      - database-url=postgresql://etfuser:etfpassword@postgres-host:5432/etfinfo
+
+# ── dev 패치
+patches:
+  # replicas 1
+  - patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 1
+    target:
+      kind: Deployment
+      name: backend
+  - patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 1
+    target:
+      kind: Deployment
+      name: frontend
+
+  # dev 도메인
+  - patch: |-
+      - op: replace
+        path: /spec/rules/0/host
+        value: etfinfo.localhost
+    target:
+      kind: Ingress
+      name: etfinfo-ingress
+
+  # Endpoints → 호스트 IP
+  # Docker Desktop(Mac/Windows): host.docker.internal 의 IP를 사용
+  # Linux 노드: `ip route get 1 | awk '{print $7; exit}'` 로 확인한 IP 입력
+  - patch: |-
+      - op: replace
+        path: /subsets/0/addresses/0/ip
+        value: "192.168.65.2"   # Docker Desktop 호스트 기본 게이트웨이 IP
+    target:
+      kind: Endpoints
+      name: postgres-host

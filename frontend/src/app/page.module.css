@@ -1,0 +1,223 @@
+/* ===========================
+   Table Row Hover
+=========================== */
+.tableRow {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.tableRow:hover td {
+  background: rgba(59, 130, 246, 0.06);
+}
+
+/* ===========================
+   자산유형 탭
+=========================== */
+.assetTabs {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0;
+}
+
+.assetTab {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.assetTab:hover {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.35);
+  color: var(--text-primary);
+}
+.assetTabActive {
+  background: var(--accent-blue) !important;
+  border-color: var(--accent-blue) !important;
+  color: #fff !important;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
+}
+.tabCount {
+  font-size: 0.72rem;
+  opacity: 0.75;
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 0 0.35rem;
+}
+
+/* ===========================
+   필터 바
+=========================== */
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+}
+
+/* 검색 */
+.searchWrap {
+  display: flex;
+  flex: 1;
+  min-width: 180px;
+  max-width: 280px;
+}
+.searchInput {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.searchInput::placeholder { color: var(--text-secondary); }
+.searchInput:focus { border-color: rgba(59, 130, 246, 0.5); }
+.searchBtn {
+  padding: 0 0.75rem;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 0 8px 8px 0;
+  color: var(--accent-blue);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.15s;
+}
+.searchBtn:hover { background: rgba(59, 130, 246, 0.35); }
+
+/* 드롭다운 */
+.filterSelect {
+  padding: 0.45rem 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+  min-width: 130px;
+}
+.filterSelect:focus { border-color: rgba(59, 130, 246, 0.5); }
+.filterSelect option { background: #1e293b; color: var(--text-primary); }
+
+/* 초기화 버튼 */
+.clearBtn {
+  padding: 0.45rem 0.85rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #f87171;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.clearBtn:hover {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* ===========================
+   분류 뱃지
+=========================== */
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.badgeAsset  { background: rgba(99, 102, 241, 0.18); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.3); }
+.badgeRegion { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.3); }
+.badgeSector { background: rgba(245, 158, 11, 0.15); color: #fcd34d; border: 1px solid rgba(245,158,11,0.3); }
+.badgeManager{ background: rgba(59, 130, 246, 0.12); color: #93c5fd; border: 1px solid rgba(59,130,246,0.25); }
+
+/* ===========================
+   Pagination
+=========================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.75rem;
+  flex-wrap: wrap;
+}
+.pageBtn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pageBtn:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+.pageBtn:disabled { opacity: 0.3; cursor: not-allowed; }
+.pageBtnActive {
+  background: var(--accent-blue) !important;
+  border-color: var(--accent-blue) !important;
+  color: #fff !important;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+
+/* ===========================
+   Loading
+=========================== */
+.loadingWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(59, 130, 246, 0.15);
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: etfinfo
+
+resources:
+  - namespace.yaml
+  - postgres-external.yaml
+  - backend/deployment.yaml
+  - backend/service.yaml
+  - frontend/deployment.yaml
+  - frontend/service.yaml
+  - ingress.yaml
+
+# 공통 라벨
+commonLabels:
+  app.kubernetes.io/name: etfinfo
+  app.kubernetes.io/managed-by: kustomize
+
+# 이미지 태그는 overlay에서 오버라이드
+images:
+  - name: skcha/etfinfo-backend
+    newTag: latest
+  - name: skcha/etfinfo-frontend
+    newTag: latest
+
+patchesJson6902:
+  - path: postgres-service-patch.yaml
+    target:
+      kind: Service
+      name: postgres-host
