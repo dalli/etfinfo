@@ -1,0 +1,207 @@
+etf_postgres  | The files belonging to this database system will be owned by user "postgres".
+etf_postgres  | This user must also own the server process.
+etf_postgres  | 
+etf_postgres  | The database cluster will be initialized with locale "en_US.utf8".
+etf_postgres  | The default database encoding has accordingly been set to "UTF8".
+etf_postgres  | The default text search configuration will be set to "english".
+etf_postgres  | 
+etf_postgres  | Data page checksums are disabled.
+etf_postgres  | 
+etf_postgres  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+etf_postgres  | creating subdirectories ... ok
+etf_postgres  | selecting dynamic shared memory implementation ... posix
+etf_postgres  | selecting default max_connections ... 100
+etf_postgres  | selecting default shared_buffers ... 128MB
+etf_postgres  | selecting default time zone ... Etc/UTC
+etf_postgres  | creating configuration files ... ok
+etf_postgres  | running bootstrap script ... ok
+etf_postgres  | performing post-bootstrap initialization ... ok
+etf_postgres  | initdb: warning: enabling "trust" authentication for local connections
+etf_postgres  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+etf_postgres  | syncing data to disk ... ok
+etf_postgres  | 
+etf_postgres  | 
+etf_postgres  | Success. You can now start the database server using:
+etf_postgres  | 
+etf_postgres  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+etf_postgres  | 
+etf_postgres  | waiting for server to start....2026-04-27 12:06:35.505 UTC [48] LOG:  starting PostgreSQL 15.17 (Debian 15.17-1.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+etf_postgres  | 2026-04-27 12:06:35.506 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+etf_postgres  | 2026-04-27 12:06:35.508 UTC [51] LOG:  database system was shut down at 2026-04-27 12:06:35 UTC
+etf_postgres  | 2026-04-27 12:06:35.510 UTC [48] LOG:  database system is ready to accept connections
+etf_postgres  |  done
+etf_postgres  | server started
+etf_postgres  | CREATE DATABASE
+etf_postgres  | 
+etf_postgres  | 
+etf_postgres  | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+etf_postgres  | 
+etf_postgres  | waiting for server to shut down....2026-04-27 12:06:35.648 UTC [48] LOG:  received fast shutdown request
+etf_postgres  | 2026-04-27 12:06:35.649 UTC [48] LOG:  aborting any active transactions
+etf_postgres  | 2026-04-27 12:06:35.650 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+etf_postgres  | 2026-04-27 12:06:35.650 UTC [49] LOG:  shutting down
+etf_postgres  | 2026-04-27 12:06:35.650 UTC [49] LOG:  checkpoint starting: shutdown immediate
+etf_postgres  | 2026-04-27 12:06:35.672 UTC [49] LOG:  checkpoint complete: wrote 922 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=0.015 s, total=0.022 s; sync files=301, longest=0.006 s, average=0.001 s; distance=4239 kB, estimate=4239 kB
+etf_postgres  | 2026-04-27 12:06:35.673 UTC [48] LOG:  database system is shut down
+etf_postgres  |  done
+etf_postgres  | server stopped
+etf_postgres  | 
+etf_postgres  | PostgreSQL init process complete; ready for start up.
+etf_postgres  | 
+etf_postgres  | 2026-04-27 12:06:35.760 UTC [1] LOG:  starting PostgreSQL 15.17 (Debian 15.17-1.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+etf_postgres  | 2026-04-27 12:06:35.761 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+etf_postgres  | 2026-04-27 12:06:35.761 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+etf_postgres  | 2026-04-27 12:06:35.762 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+etf_postgres  | 2026-04-27 12:06:35.763 UTC [64] LOG:  database system was shut down at 2026-04-27 12:06:35 UTC
+etf_postgres  | 2026-04-27 12:06:35.765 UTC [1] LOG:  database system is ready to accept connections
+etf_frontend  | 
+etf_frontend  | > frontend@0.1.0 dev
+etf_frontend  | > next dev
+etf_frontend  | 
+etf_backend   | warning: Ignoring existing virtual environment linked to non-existent Python interpreter: .venv/bin/python3 -> python
+etf_backend   | Using CPython 3.12.13 interpreter at: /usr/local/bin/python3.12
+etf_frontend  | ▲ Next.js 16.2.4 (Turbopack)
+etf_frontend  | - Local:         http://localhost:3000
+etf_frontend  | - Network:       http://172.19.0.4:3000
+etf_frontend  | ✓ Ready in 250ms
+etf_frontend  | Attention: Next.js now collects completely anonymous telemetry regarding usage.
+etf_frontend  | This information is used to shape Next.js' roadmap and prioritize features.
+etf_frontend  | You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+etf_frontend  | https://nextjs.org/telemetry
+etf_frontend  | 
+etf_frontend  | 
+etf_backend   | Removed virtual environment at: .venv
+etf_backend   | Creating virtual environment at: .venv
+etf_backend   | warning: Failed to hardlink files; falling back to full copy. This may lead to degraded performance.
+etf_backend   |          If the cache and target directories are on different filesystems, hardlinking may not be supported.
+etf_backend   |          If this is intentional, set `export UV_LINK_MODE=copy` or use `--link-mode=copy` to suppress this warning.
+etf_backend   | Installed 45 packages in 3.44s
+etf_backend   | INFO:     Will watch for changes in these directories: ['/app']
+etf_backend   | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+etf_backend   | INFO:     Started reloader process [27] using StatReload
+etf_backend   | Process SpawnProcess-1:
+etf_backend   | Traceback (most recent call last):
+etf_backend   |   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+etf_backend   |     self.run()
+etf_backend   |   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108, in run
+etf_backend   |     self._target(*self._args, **self._kwargs)
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+etf_backend   |     target(sockets=sockets)
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 75, in run
+etf_backend   |     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+etf_backend   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+etf_backend   |   File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+etf_backend   |     return runner.run(main)
+etf_backend   |            ^^^^^^^^^^^^^^^^
+etf_backend   |   File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+etf_backend   |     return self._loop.run_until_complete(task)
+etf_backend   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+etf_backend   |   File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+etf_backend   |     return future.result()
+etf_backend   |            ^^^^^^^^^^^^^^^
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 79, in serve
+etf_backend   |     await self._serve(sockets)
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 86, in _serve
+etf_backend   |     config.load()
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 449, in load
+etf_backend   |     self.loaded_app = import_from_string(self.app)
+etf_backend   |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 22, in import_from_string
+etf_backend   |     raise exc from None
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+etf_backend   |     module = importlib.import_module(module_str)
+etf_backend   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+etf_backend   |   File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+etf_backend   |     return _bootstrap._gcd_import(name[level:], package, level)
+etf_backend   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+etf_backend   |   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+etf_backend   |   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+etf_backend   |   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+etf_backend   |   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+etf_backend   |   File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+etf_backend   |   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+etf_backend   |   File "/app/main.py", line 4, in <module>
+etf_backend   |     from scheduler import start_scheduler
+etf_backend   |   File "/app/scheduler.py", line 3, in <module>
+etf_backend   |     from pykrx import stock
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/pykrx/__init__.py", line 4, in <module>
+etf_backend   |     import pkg_resources
+etf_backend   | ModuleNotFoundError: No module named 'pkg_resources'
+[Ketf_backend has been recreated
+etf_backend   | INFO:     Stopping reloader process [27]
+[Ketf_backend exited with code 0
+[Ketf_frontend has been recreated
+etf_frontend  | [?25h
+[Ketf_frontend exited with code 0
+etf_frontend  | 
+etf_frontend  | > frontend@0.1.0 dev
+etf_frontend  | > next dev
+etf_frontend  | 
+etf_backend   | INFO:     Will watch for changes in these directories: ['/app']
+etf_backend   | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+etf_backend   | INFO:     Started reloader process [11] using StatReload
+etf_frontend  | ▲ Next.js 16.2.4 (Turbopack)
+etf_frontend  | - Local:         http://localhost:3000
+etf_frontend  | - Network:       http://172.19.0.4:3000
+etf_frontend  | ✓ Ready in 233ms
+etf_frontend  | 
+etf_backend   | Process SpawnProcess-1:
+etf_backend   | Traceback (most recent call last):
+etf_backend   |   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+etf_backend   |     self.run()
+etf_backend   |   File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108, in run
+etf_backend   |     self._target(*self._args, **self._kwargs)
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+etf_backend   |     target(sockets=sockets)
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 75, in run
+etf_backend   |     return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+etf_backend   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+etf_backend   |   File "/usr/local/lib/python3.12/asyncio/runners.py", line 195, in run
+etf_backend   |     return runner.run(main)
+etf_backend   |            ^^^^^^^^^^^^^^^^
+etf_backend   |   File "/usr/local/lib/python3.12/asyncio/runners.py", line 118, in run
+etf_backend   |     return self._loop.run_until_complete(task)
+etf_backend   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+etf_backend   |   File "/usr/local/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+etf_backend   |     return future.result()
+etf_backend   |            ^^^^^^^^^^^^^^^
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 79, in serve
+etf_backend   |     await self._serve(sockets)
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/server.py", line 86, in _serve
+etf_backend   |     config.load()
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/config.py", line 449, in load
+etf_backend   |     self.loaded_app = import_from_string(self.app)
+etf_backend   |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 22, in import_from_string
+etf_backend   |     raise exc from None
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/uvicorn/importer.py", line 19, in import_from_string
+etf_backend   |     module = importlib.import_module(module_str)
+etf_backend   |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+etf_backend   |   File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+etf_backend   |     return _bootstrap._gcd_import(name[level:], package, level)
+etf_backend   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+etf_backend   |   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+etf_backend   |   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+etf_backend   |   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+etf_backend   |   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+etf_backend   |   File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+etf_backend   |   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+etf_backend   |   File "/app/main.py", line 4, in <module>
+etf_backend   |     from scheduler import start_scheduler
+etf_backend   |   File "/app/scheduler.py", line 3, in <module>
+etf_backend   |     from pykrx import stock
+etf_backend   |   File "/app/.venv/lib/python3.12/site-packages/pykrx/__init__.py", line 4, in <module>
+etf_backend   |     import pkg_resources
+etf_backend   | ModuleNotFoundError: No module named 'pkg_resources'
+etf_frontend  | [?25h
+[Ketf_frontend exited with code 0
+etf_backend   | INFO:     Stopping reloader process [11]
+[Ketf_backend exited with code 0
+etf_postgres  | 2026-04-27 12:09:58.011 UTC [1] LOG:  received fast shutdown request
+etf_postgres  | 2026-04-27 12:09:58.013 UTC [1] LOG:  aborting any active transactions
+etf_postgres  | 2026-04-27 12:09:58.014 UTC [1] LOG:  background worker "logical replication launcher" (PID 67) exited with exit code 1
+etf_postgres  | 2026-04-27 12:09:58.015 UTC [62] LOG:  shutting down
+etf_postgres  | 2026-04-27 12:09:58.015 UTC [62] LOG:  checkpoint starting: shutdown immediate
+etf_postgres  | 2026-04-27 12:09:58.041 UTC [62] LOG:  checkpoint complete: wrote 114 buffers (0.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.009 s, sync=0.010 s, total=0.026 s; sync files=87, longest=0.002 s, average=0.001 s; distance=546 kB, estimate=546 kB
+etf_postgres  | 2026-04-27 12:09:58.044 UTC [1] LOG:  database system is shut down
+[Ketf_postgres exited with code 0

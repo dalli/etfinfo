@@ -1,0 +1,35 @@
+2026-04-30 09:47:54 - pykrx_openapi - INFO - Initialized KRX OpenAPI client (rate_limit=10/1s)
+테스트 날짜: 20260428
+API 명                          | 엔드포인트                          | 상태              | 데이터 수
+------------------------------------------------------------------------------------------
+KRX 시리즈 일별시세정보                 | idx/krx_dd_trd                 | ✅ Success       | 34
+KOSPI 시리즈 일별시세정보               | idx/kospi_dd_trd               | ✅ Success       | 51
+KOSDAQ 시리즈 일별시세정보              | idx/kosdaq_dd_trd              | ✅ Success       | 40
+채권지수 시세정보                      | idx/bon_dd_trd                 | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+파생상품지수 시세정보                    | idx/drvprod_dd_trd             | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+유가증권 일별매매정보                    | sto/stk_bydd_trd               | ✅ Success       | 949
+코스닥 일별매매정보                     | sto/ksq_bydd_trd               | ✅ Success       | 1821
+코넥스 일별매매정보                     | sto/knx_bydd_trd               | ✅ Success       | 110
+신주인수권증권 일별매매정보                 | sto/sw_bydd_trd                | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+신주인수권증서 일별매매정보                 | sto/sr_bydd_trd                | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+유가증권 종목기본정보                    | sto/stk_isu_base_info          | ✅ Success       | 949
+코스닥 종목기본정보                     | sto/ksq_isu_base_info          | ✅ Success       | 1821
+코넥스 종목기본정보                     | sto/knx_isu_base_info          | ✅ Success       | 110
+ETF 일별매매정보                     | etp/etf_bydd_trd               | ✅ Success       | 1099
+ETN 일별매매정보                     | etp/etn_bydd_trd               | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+ELW 일별매매정보                     | etp/elw_bydd_trd               | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+국채전문유통시장 일별매매정보                | bon/kts_bydd_trd               | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+일반채권시장 일별매매정보                  | bon/bnd_bydd_trd               | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+소액채권시장 일별매매정보                  | bon/smb_bydd_trd               | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+선물 일별매매정보 (주식선물外)              | drv/fut_bydd_trd               | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+주식선물(유가) 일별매매정보                | drv/eqsfu_stk_bydd_trd         | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+주식선물(코스닥) 일별매매정보               | drv/eqkfu_ksq_bydd_trd         | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+옵션 일별매매정보 (주식옵션外)              | drv/opt_bydd_trd               | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+주식옵션(유가) 일별매매정보                | drv/eqsop_bydd_trd             | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+주식옵션(코스닥) 일별매매정보               | drv/eqkop_bydd_trd             | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+석유시장 일별매매정보                    | gen/oil_bydd_trd               | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+금시장 일별매매정보                     | gen/gold_bydd_trd              | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+배출권 시장 일별매매정보                  | gen/ets_bydd_trd               | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+사회책임투자채권 정보                    | esg/sri_bond_info              | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+ESG 증권상품                       | esg/esg_etp_info               | ❌ Failed: Invalid API key (401 Unauthorized) | 0
+ESG 지수                         | esg/esg_index_info             | ❌ Failed: Invalid API key (401 Unauthorized) | 0
