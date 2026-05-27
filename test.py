@@ -2,12 +2,12 @@ import datetime
 from pykrx_openapi import KRXOpenAPI
 
 # 발급받은 인증키 설정
-auth_key = "D8B43DB4ED5F44158D23788AA75F28D12829AAD2"
+auth_key = "378C8AF757164D28BF711836AA97DBB589D7F59E"
 krx = KRXOpenAPI(api_key=auth_key)
 
 # 오늘 날짜 확인 (최근 영업일 기준 조회가 안전함)
 today = datetime.datetime.now().strftime("%Y%m%d")
-yesterday = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime("%Y%m%d")
+yesterday = (datetime.datetime.now() - datetime.timedelta(days=2)).strftime("%Y%m%d")
 
 print(f"=== KRX OpenAPI 테스트 ===")
 print(f"조회 날짜: {today}")
