@@ -573,6 +573,24 @@ def update_constituents():
 
 
 def start_scheduler():
+    # ──────────────────────────────────────────────
+    # 시작 시 오늘 첫 실행인지 확인하고, 첫 실행이면 신규 ETF 목록 및 시세 동기화 시작
+    # ──────────────────────────────────────────────
+    db = SessionLocal()
+    try:
+        today = datetime.datetime.now(kst).date()
+        # 오늘 날짜의 ETF 가격 데이터가 하나라도 있는지 확인
+        exists = db.query(ETFPriceDaily).filter(ETFPriceDaily.date == today).first()
+        if not exists:
+            logger.info("ℹ️ 오늘 첫 실행 감지: 신규 ETF 목록 및 시세 동기화 시작")
+            update_etf_list()
+        else:
+            logger.info("ℹ️ 오늘 이미 ETF 목록이 동기화되었습니다. (오늘 데이터 존재)")
+    except Exception as e:
+        logger.error(f"❌ 시작 시 신규 ETF 확인 중 오류 발생: {e}", exc_info=True)
+    finally:
+        db.close()
+
     scheduler = BackgroundScheduler(timezone=kst)
 
     # 1. 매일 08:30 — 종목 목록 갱신
